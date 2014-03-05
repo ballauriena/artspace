@@ -1,3 +1,7 @@
+.all{
+  background-color: #993344;
+}
+
 #thumbnails {
   display: inline;
   margin-left: 10px;
@@ -6,7 +10,7 @@
 }
 
 #thumbnails img {
-  border: 1px solid grey;
+  border: 3px solid white;
   height: 85px;
   width: 85px;
   background-color: lightgrey;
@@ -40,3 +44,4 @@
   font-size: 12px;
   font-weight: bold;
 }
+
