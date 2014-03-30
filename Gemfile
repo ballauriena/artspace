@@ -72,3 +72,7 @@ gem 'jquery-turbolinks'
 
 #for the css
 gem 'normalize-rails'
+
+#for image uploading
+gem 'paperclip'
+gem 'aws-sdk'
