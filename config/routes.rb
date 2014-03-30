@@ -13,6 +13,9 @@ Artspace::Application.routes.draw do
     resources :availabilities, only: [:new, :update]
   end
 
+  resources :photos
+
+
   get "spaces/:space_id/edit_availabilities", to: "availabilities#edit", as: "edit_availabilities"
   post "spaces/availabilities/update", to: "availabilities#update", as: "update_availabilities"
   resources :availabilities, only: [:create]
@@ -20,7 +23,7 @@ Artspace::Application.routes.draw do
   get "reservations/confirmation", to: "reservations#confirmation", as: "reservations_confirmation"
 
   # get  "spaces/:id/pic", to: "spaces#edit_pic", as: "edit_pic"
-  
+  # post "create_photo", to: "create_space_photo"
   # post "delete_pic", to: "spaces#delete_photo"
   # post "update_pic", to: "spaces#update_pic", as: "update_pic"
   resources :payments, only: [:new]
