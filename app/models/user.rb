@@ -22,8 +22,9 @@ class User < ActiveRecord::Base
     top3.map{ |t| Space.find(t[0])}
   end
 
+#uncomment this out later
   def publishable_key
-    self.payments.first.publishable_api_key
+    # self.payments.first.publishable_api_key
   end
 
   def secret_key
