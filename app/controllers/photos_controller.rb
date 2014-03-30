@@ -27,12 +27,12 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
 
     respond_to do |format|
-      if @space.save
+      if @photo.save
         format.html { redirect_to spaces_path, notice: 'Friend was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @space }
+        format.json { render action: 'show', status: :created, location: @photo }
       else
         format.html { render action: 'new' }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -10,6 +10,7 @@ class SpacesController < ApplicationController
   def new
     redirect_to root_path if !current_user
     @space = Space.new
+    @photo = Photo.new
   end
 
   def create
@@ -18,7 +19,7 @@ class SpacesController < ApplicationController
     @space.creator_id = current_user.id
     if @space.save
       insert_uses(@space.id, @use_ids)
-      save_photos(@space, params["pic_url"])
+      # save_photos(@space, params["pic_url"])
       redirect_to new_space_availability_path(@space)
     else
       flash[:notice] = "Space could not be saved! " + @space.errors.full_messages
@@ -58,16 +59,31 @@ class SpacesController < ApplicationController
     redirect_to manage_path(current_user)
   end
 
-  # def update_pic
-  #   @space = Space.find_by_id(params["space_id"])
-  #   if params["pic_url"]
-  #     puts params["pic_url"]
-  #     params["pic_url"].split(',').each do |url|
-  #       Photo.create(space: @space, url: url)
-  #     end
-  #   end
-  #   redirect_to manage_path(current_user.id)
-  # end
+  def update_pic
+    @space = Space.find_by_id(params["space_id"])
+    if params["pic_url"]
+      puts params["pic_url"]
+      params["pic_url"].split(',').each do |url|
+        Photo.create(space: @space, url: url)
+      end
+    end
+    redirect_to manage_path(current_user.id)
+  end
+
+  def create_space_photo
+    @photo = Photo.new(photo_params)
+    @space.photos << @photo
+
+    respond_to do |format|
+      if @photo.save
+        format.html { redirect_to spaces_path, notice: 'Friend was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @photo }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # def edit_pic
   #   @space = Space.find(params[:id])
