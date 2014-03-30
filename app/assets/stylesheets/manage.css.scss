@@ -37,6 +37,17 @@
   float: left;
   display: inline;
   font-family: 'Jura', sans-serif;
+  text-align: center;
+  a{
+    text-decoration: none;
+    font-family: 'Jura', sans-serif;
+    color: gray;
+    &:hover{
+      color: black;
+      font-weight: bold;
+      text-shadow: 0px 5px 5px lightgray;
+    }
+  }
 }
 
 div.upcoming_reservations{
