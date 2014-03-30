@@ -4,15 +4,16 @@
 </div>
 
 <div class="info_section">
+
   <div class="photo">
     <% unless @space.photos.empty? %>
-      <img id="primary_photo" src="<%=@space.photos.first.url%>">
+      <img id="primary_photo" src="<%=@space.photos.first.uploaded_photo.url(:medium)%>">
     <% end %>
     <div>
       <ul id="thumbnails">
-        <% for i in 0..3 %>
+        <% for i in 0..2 %>
           <% if @space.photos[i] %>
-            <img class="highlight" id="thumb<%=i%>" src="<%= @space.photos[i].url %>">
+            <img class="highlight" id="thumb<%=i%>" src="<%= @space.photos[i].uploaded_photo.url(:thumb) %>">
           <% else %>
             <img id="thumb<%=i%>" src="">
           <% end %>
@@ -20,6 +21,7 @@
       </ul>
     </div>
   </div>
+
   <div class="contents">
     <p><h5>description |</h5><%= @space.description %></p>
     <p><h5>dimensions |</h5><%= @space.dimensions %></p>

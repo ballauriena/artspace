@@ -1,5 +1,26 @@
 <ul id="space_form_list">
   <%= form_for @space, :html => {:class => "spaceform"} do |f| %>
+
+
+  <%= f.fields_for :photos, multipart: true do |builder| %>
+    <div class="field">
+      <%= builder.label :title %>
+      <%= builder.text_field :title %>
+    </div>
+      <div class="field">
+      <%= builder.label :short_description %>
+      <%= builder.text_field :short_description %>
+    </div>
+    <div class="field">
+      <%= builder.label :uploaded_photo %>
+      <%= builder.file_field :uploaded_photo %>
+    </div>
+  <% end %>
+
+
+
+
+ 
   <div id="form_container"></div>
   <li><p>please provide a title for your space<br>this is how artists will search for your space<br><%= f.text_field   :title, placeholder: "Title", :required => true %></p></li>
   <li><p><%= f.text_area    :description, placeholder: "Please provide a description of your space. Include anything you may want to share with artists who will be renting your space.", size: "60x12", :required => true %></p></li>
