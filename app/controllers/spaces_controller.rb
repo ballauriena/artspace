@@ -58,28 +58,28 @@ class SpacesController < ApplicationController
     redirect_to manage_path(current_user)
   end
 
-  def update_pic
-    @space = Space.find_by_id(params["space_id"])
-    if params["pic_url"]
-      puts params["pic_url"]
-      params["pic_url"].split(',').each do |url|
-        Photo.create(space: @space, url: url)
-      end
-    end
-    redirect_to manage_path(current_user.id)
-  end
+  # def update_pic
+  #   @space = Space.find_by_id(params["space_id"])
+  #   if params["pic_url"]
+  #     puts params["pic_url"]
+  #     params["pic_url"].split(',').each do |url|
+  #       Photo.create(space: @space, url: url)
+  #     end
+  #   end
+  #   redirect_to manage_path(current_user.id)
+  # end
 
-  def edit_pic
-    @space = Space.find(params[:id])
-    @photos = Photo.where(space_id: @space.id).all
-    redirect_to root_path and return unless current_user
-    redirect_to user_path(current_user) unless current_user == @space.creator
-  end
+  # def edit_pic
+  #   @space = Space.find(params[:id])
+  #   @photos = Photo.where(space_id: @space.id).all
+  #   redirect_to root_path and return unless current_user
+  #   redirect_to user_path(current_user) unless current_user == @space.creator
+  # end
 
-  def delete_photo
-    Photo.destroy(params["id"])
-    redirect_to user_path(current_user.id)
-  end
+  # def delete_photo
+  #   Photo.destroy(params["id"])
+  #   redirect_to user_path(current_user.id)
+  # end
 
   private
 
@@ -96,14 +96,14 @@ class SpacesController < ApplicationController
     end
   end
 
-  def save_photos(space, pic_url)
-    if pic_url
-      pic_url.split(',').each do |url|
-        Photo.create(space: space, url: url)
-      end
-    else
-      space.photos << Photo.first
-    end
-  end
+  # def save_photos(space, pic_url)
+  #   if pic_url
+  #     pic_url.split(',').each do |url|
+  #       Photo.create(space: space, url: url)
+  #     end
+  #   else
+  #     space.photos << Photo.first
+  #   end
+  # end
 
 end

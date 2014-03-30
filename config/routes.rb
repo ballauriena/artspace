@@ -19,10 +19,10 @@ Artspace::Application.routes.draw do
   resources :reservations, only: [:create, :destroy]
   get "reservations/confirmation", to: "reservations#confirmation", as: "reservations_confirmation"
 
-  get  "spaces/:id/pic", to: "spaces#edit_pic", as: "edit_pic"
+  # get  "spaces/:id/pic", to: "spaces#edit_pic", as: "edit_pic"
   
-  post "delete_pic", to: "spaces#delete_photo"
-  post "update_pic", to: "spaces#update_pic", as: "update_pic"
+  # post "delete_pic", to: "spaces#delete_photo"
+  # post "update_pic", to: "spaces#update_pic", as: "update_pic"
   resources :payments, only: [:new]
   get "payments/callback", to: "payments#callback", as: "payments_callback"
   post "payments/charge", to: "payments#charge", as: "payment_charge"
