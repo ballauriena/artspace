@@ -4,18 +4,16 @@
 
   <%= f.fields_for :photos, multipart: true do |builder| %>
   <p class="photos">
-    <div class="field">
-      <%= builder.label :title %>
-      <%= builder.text_field :title %>
-    </div>
-      <div class="field">
-      <%= builder.label :short_description %>
-      <%= builder.text_field :short_description %>
-    </div>
-    <div class="field">
-      <%= builder.label :uploaded_photo %>
-      <%= builder.file_field :uploaded_photo %>
-    </div>
+
+    <%= builder.label :title %>
+    <%= builder.text_field :title %>
+
+    <%= builder.label :short_description %>
+    <%= builder.text_field :short_description %>
+
+    <%= builder.label :uploaded_photo %>
+    <%= builder.file_field :uploaded_photo %>
+
     <%= builder.hidden_field :_destroy %>
     <%= link_to "remove", "remove_photos(this)" %>
   </p>
