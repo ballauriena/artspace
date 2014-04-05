@@ -10,7 +10,7 @@ class SpacesController < ApplicationController
   def new
     redirect_to root_path if !current_user
     @space = Space.new
-    1.times{ @space.photos.build }
+    3.times{ @space.photos.build }
   end
 
   def create
