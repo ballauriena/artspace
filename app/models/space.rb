@@ -11,7 +11,7 @@ class Space < ActiveRecord::Base
   has_many :uses, through: :space_uses
 
   has_many :photos, dependent: :destroy
-  accepts_nested_attributes_for :photos, :allow_destroy => true
+  accepts_nested_attributes_for :photos, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :availabilities
 

@@ -72,3 +72,6 @@ gem 'normalize-rails'
 #for image uploading
 gem 'paperclip'
 gem 'aws-sdk'
+
+#for nested forms
+gem "cocoon"
