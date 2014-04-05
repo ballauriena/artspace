@@ -3,7 +3,7 @@
 
 
   <%= f.fields_for :photos, multipart: true do |builder| %>
-  <p class="photos">
+  <p class="photo_fields">
 
     <%= builder.text_field :title, placeholder: "Title" %><br>
 
@@ -13,7 +13,7 @@
     <%= builder.file_field :uploaded_photo %><br>
 
     <%= builder.hidden_field :_destroy %>
-    <%= link_to "remove", "remove_photos(this)" %>
+    <%= link_to_function "remove", "remove_photos(this)" %>
   </p>
   <% end %>
 
