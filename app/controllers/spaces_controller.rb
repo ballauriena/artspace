@@ -70,7 +70,8 @@ class SpacesController < ApplicationController
                                   :phone, :active, photos_attributes: [:space_id,
                                                                       :uploaded_photo,
                                                                       :title,
-                                                                      :short_description])
+                                                                      :short_description,
+                                                                      :_destroy])
   end
 
   def insert_uses(space_id, use_ids)
