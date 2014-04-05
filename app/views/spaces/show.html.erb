@@ -7,13 +7,13 @@
 
   <div class="photo">
     <% unless @space.photos.empty? %>
-      <img id="primary_photo" src="<%=@space.photos.first.uploaded_photo.url(:medium)%>">
+      <img id="primary_photo" src="<%=@space.photos.first.uploaded_photo.url(:square)%>">
     <% end %>
     <div>
       <ul id="thumbnails">
         <% for i in 0..2 %>
           <% if @space.photos[i] %>
-            <img class="highlight" id="thumb<%=i%>" src="<%= @space.photos[i].uploaded_photo.url(:thumb) %>">
+            <img class="highlight" id="thumb<%=i%>" src="<%= @space.photos[i].uploaded_photo.url(:square) %>">
           <% else %>
             <img id="thumb<%=i%>" src="">
           <% end %>
