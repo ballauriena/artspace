@@ -26,6 +26,6 @@
 //= require calendar/jquery_browser_backport
 //= require calendar/date
 //= require calendar/jquery.weekcalendar
-//= require cocoon
 //= require_tree .
 //= require turbolinks
+//= require cocoon

@@ -22,6 +22,8 @@ $(document).ready(function(){
     });
 
 
+  $("a.add_fields").data("association-insertion-method", 'prepend').data("association-insertion-node", '.spaceform');
+
 
 
 });
