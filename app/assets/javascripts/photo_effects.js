@@ -21,7 +21,7 @@ $(document).ready(function(){
         }
     });
 
-
+//dynamically adds a form field to upload a photo 
   $("a.add_fields").data("association-insertion-method", 'prepend').data("association-insertion-node", '.spaceform');
 
 
