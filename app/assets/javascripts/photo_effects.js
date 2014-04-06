@@ -22,7 +22,12 @@ $(document).ready(function(){
     });
 
 //dynamically adds a form field to upload a photo 
-  $("a.add_fields").data("association-insertion-method", 'prepend').data("association-insertion-node", '.spaceform');
+  $("a.add_fields").data("association-insertion-method", 'prepend').
+  data("association-insertion-node", '.spaceform');
+
+  $(".spaceform").on('click', '.remove_fields',function(){
+    $(this).closest('.photo_fields').remove();
+  });
 
 
 
