@@ -18,9 +18,7 @@ class SpacesController < ApplicationController
     @space.creator_id = current_user.id
     if @space.save
       insert_uses(@space.id, @use_ids)
-      redirect_to space_path(@space.id)
-#uncomment this later
-      # redirect_to new_space_availability_path(@space)
+      redirect_to new_space_availability_path(@space)
 #may need to look at the error messages being sent
     else
       flash[:notice] = "Space could not be saved! " + @space.errors.full_messages
